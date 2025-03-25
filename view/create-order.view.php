@@ -19,10 +19,21 @@
 
 	<main>
 
-		<form method="GET">
+
+	<h3><?php echo $message; ?></h3>
+
+		<form method="POST" >
 
 			<label for="quantity">Quantity
 				<input type="number" name="quantity" />
+			</label>
+
+			<label for="product">
+				<select name="product">
+					<option value="teeshirt_mario">Teeshirt Mario</option>
+					<option value="teeshirt_hello_kitty">Teeshirt Hello Kitty</option>
+					<option value="teeshirt_gta">Teeshirt GTA</option>
+				</select>
 			</label>
 
 			<button type="submit">Créer la commande</button>
