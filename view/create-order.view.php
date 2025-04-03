@@ -19,12 +19,9 @@
 
 	<main>
 
-
-	<?php if (array_key_exists("order", $_SESSION)) { ?>
-		<p>Vous avez une commande en attente : <?php echo $_SESSION["order"]["quantity"]; ?> : <?php echo $_SESSION["order"]["product"]; ?></p>
-	<?php } ?>
-
-
+		<?php if ($orderByUser) {?>
+			<p>Vous avez une commande en attente : <?php echo $orderByUser['product']; ?> <?php echo $orderByUser['quantity']; ?>
+		<?php } ?>
 
 		<form method="POST" >
 
