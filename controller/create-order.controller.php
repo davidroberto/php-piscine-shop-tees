@@ -11,13 +11,14 @@ $message = "";
 if (array_key_exists("quantity", $_POST) && 
 	array_key_exists("product", $_POST))
 {
-	$order = createOrder($_POST['product'], $_POST['quantity']);
 
-	if ($order) {
+	try {
+		$order = createOrder($_POST['product'], $_POST['quantity']);
 		saveOrder($order);
-	} else {
-		$message = "impossible de créer la commande";
+	} catch(Exception $e) {
+		$message = $e->getMessage();
 	}
+	
 
 }
 

@@ -14,8 +14,11 @@ function findOrderByUser() {
 // créé la commande
 function createOrder($product, $quantity) {
 
-	if ($quantity < 0 || $quantity > 3) {
-		return false;
+	if ($quantity < 0) {
+		throw new Exception("Interdiction de mettre une quantité inférieure à 0");
+	} else if ($quantity > 3){
+		throw new Exception("Interdication de mettre quantité supérieur à 3");
+		
 	} else {
 		$order = [
 			"product" => $product,
