@@ -10,6 +10,8 @@ function findOrderByUser() {
 	}
 }
 
+// vérifie que la commande a le droit d'être créée
+// créé la commande
 function createOrder($product, $quantity) {
 
 	if ($quantity < 0 || $quantity > 3) {
@@ -17,7 +19,8 @@ function createOrder($product, $quantity) {
 	} else {
 		$order = [
 			"product" => $product,
-			"quantity" => $quantity
+			"quantity" => $quantity,
+			"createdAt" => new DateTime()
 		];
 	
 		return $order;
