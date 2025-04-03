@@ -19,10 +19,7 @@
 
 	<main>
 
-<!-- je regarde s'il y une clé order dans mon espace de stockage de session sur le serveur
- si oui, j'affiche les infos à l'intérieur
- 
--->
+
 	<?php if (array_key_exists("order", $_SESSION)) { ?>
 		<p>Vous avez une commande en attente : <?php echo $_SESSION["order"]["quantity"]; ?> : <?php echo $_SESSION["order"]["product"]; ?></p>
 	<?php } ?>
@@ -37,9 +34,9 @@
 
 			<label for="product">
 				<select name="product">
-					<option value="teeshirt_mario">Teeshirt Mario</option>
-					<option value="teeshirt_hello_kitty">Teeshirt Hello Kitty</option>
-					<option value="teeshirt_gta">Teeshirt GTA</option>
+					<?php foreach ($products as $product) { ?>
+						<option value="<?php echo $product; ?>"><?php echo $product; ?></option>
+					<?php } ?>
 				</select>
 			</label>
 
