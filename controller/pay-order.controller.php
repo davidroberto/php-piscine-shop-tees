@@ -11,8 +11,12 @@ $orderByUser = findOrderByUser();
 // a cliqué sur "payer" dans le form)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-	// je change le status de la commande de l'utilisateur en status "PAID"
-	$orderByUser['status'] = "PAID";
+	if ($orderByUser['status'] === 'CART') {
+		$orderByUser['status'] = "PAID";
+		saveOrder($orderByUser);
+	} else {
+		$message = "la commande est déjà annulée. Vous ne pouvez plus la payer";
+	}
 
 	// je resauve la commande payée de l'utilisateur en session (elle remplace l'ancienne en CART)
 	saveOrder($orderByUser);
