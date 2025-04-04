@@ -10,13 +10,13 @@
 			<p>Votre commande est en statut :<?php echo $orderByUser['status']; ?> </p>
 
 
-			<button>Payer</button>
+			<form method="post">
+				<button type="submit">Payer</button>
+			</form>
+
 		<?php } else { ?>
 			<p>Vous n'avez pas de commande à payer</p>
 		<?php } ?>
-
-
-		
 		
 
 	</main>
